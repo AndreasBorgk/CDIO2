@@ -5,9 +5,9 @@ public class Player {
     private String name;
     private Dice d1;
     private Dice d2;
-    private int location = 0;
-    public int sum;
-    private int gamesWon = 0;
+    private int location = 0; // keeps track of the given Player's location
+    public int sum; // sums up the dice roll, to output the amount of fields the player shall move
+    private int gamesWon = 0; // keeps track of number of games won
     private Balance balance;
 
 
@@ -29,14 +29,14 @@ public int getBalance(){
         return this.balance.get();
 }
 
-    void roll() {
+    void roll() { //used from last project with changes.
         d1.roll();
 
         d2.roll();
 
         sum = d1.getFaceValue() + d2.getFaceValue();
 
-        location = (sum + location) %40;
+        location = (sum + location) %40; // makes the location run in a loop of 40 fields.
 
 
     }
@@ -48,7 +48,7 @@ public int getBalance(){
     boolean isGameDone()
   {
      return balance.get() >= 3000;
-    }
+    } // checks if a given player hits balance of 3000,
     int getFaceValue1(){
         return d1.getFaceValue();
     }
@@ -63,7 +63,7 @@ public int getBalance(){
 
     public void updateBalance(int value){
         balance.add(value);
-    }
+    } // adds field value to current balance
 
 
     void incGamesWon() {
@@ -75,7 +75,7 @@ public int getBalance(){
 
   void newGame(){
         location = 0;
-       this.balance.reset();
+       this.balance.reset(); // as we use balance.reset, we set value of our balance = 1000.
 
     }
 

@@ -18,14 +18,15 @@ public class Dice {
             diceSides = sc.nextInt();
 
 
-            dice1ok = (diceSides>= 1) && (diceSides <= 12);
+            dice1ok = (diceSides>= 1) && (diceSides <= 12); // function where you can
+            // choose the amount of sides you want on your dice.
         } while (!dice1ok);
     }
     // }
 
-    public void roll()
+    public void roll() //dices used from cdio1, changed userinput number of sides.
     {
-        faceValue = (int)(Math.random()* this.diceSides +1); // Ruller et tilfældigt tal mellem 1 og 6
+        faceValue = (int)(Math.random()* this.diceSides +1); // rolls the decided amount of sides.
     }
     public int getFaceValue()
     {
